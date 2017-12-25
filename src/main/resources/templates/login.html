@@ -9,6 +9,7 @@
 		<title>Login</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
 	</head>
 	<body>
 		<div class ="container login-container">
@@ -16,11 +17,11 @@
 				<h2 id="login">Login</h2>
 			</div>
 			<div class="input-group">
-				<input type="text" name="username" class="form-control" placeholder="Username"/><br/><br/>
+				<input type="text" name="username" class="form-control" placeholder="Email"/><br/><br/>
 				<input type="password" name="password" class="form-control" placeholder="Password"/><br/><br/>
 				<button type="submit" class="btn btn-primary loginbtn">Submit</button>
 			</div>
-			<a href="#" >Sign up</a>
+			<a th:href="@{/signup}">Sign up</a>
 		</div>
 		
 		
