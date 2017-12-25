@@ -1,4 +1,5 @@
 package hf.codingchallenge.entities;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,10 +13,11 @@ public class User {
 	private String id;
 	private String email;
 	private String password;
+	//User coordinates will be retrieved upon his login/signup
+	private Array coordinates;
 	private List<User> users;
 	private List<String> preferredShopsList; //Ids of preferred shops
 	private List<String> dislikedShopsList;  //Ids of disliked shops
-
 
 	public User() {
 		this.users = new ArrayList<>();
@@ -23,14 +25,15 @@ public class User {
 		this.dislikedShopsList =  new ArrayList<>();
 	}
 	
-	public User(String email, String password, List<User> users, 
+	public User(String email, String password,Array coordinates,
 			List<String> preferredShopsList, List<String> dislikedShopsList) {
 		super();
 		this.email = email;
 		this.password = password;
-		this.users = users;
+		this.coordinates = coordinates;
 		this.preferredShopsList = preferredShopsList;
 		this.dislikedShopsList = dislikedShopsList;
+
 	}
 
 	public String getId() {
@@ -68,6 +71,14 @@ public class User {
 		this.dislikedShopsList = dislikedShopsList;
 	}
 
+	public Array getCoordinates() {
+		return coordinates;
+	}
+
+	public void setCoordinates(Array coordinates) {
+		this.coordinates = coordinates;
+	}
+
 	public List<String> getPreferredShopsList() {
 		return preferredShopsList;
 	}
@@ -75,6 +86,8 @@ public class User {
 	public void setPreferredShopsList(List<String> preferredShopsList) {
 		this.preferredShopsList = preferredShopsList;
 	}
+
+
 
 
 }
