@@ -13,15 +13,24 @@ public class User {
 	private String email;
 	private String password;
 	private List<User> users;
+	private List<String> preferredShopsList; //Ids of preferred shops
+	private List<String> dislikedShopsList;  //Ids of disliked shops
 
 
-	public User() {this.users = new ArrayList<>();}
+	public User() {
+		this.users = new ArrayList<>();
+		this.preferredShopsList = new ArrayList<>();
+		this.dislikedShopsList =  new ArrayList<>();
+	}
 	
-	public User(String email, String password, List<User> users) {
+	public User(String email, String password, List<User> users, 
+			List<String> preferredShopsList, List<String> dislikedShopsList) {
 		super();
 		this.email = email;
 		this.password = password;
 		this.users = users;
+		this.preferredShopsList = preferredShopsList;
+		this.dislikedShopsList = dislikedShopsList;
 	}
 
 	public String getId() {
@@ -49,6 +58,22 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public List<String> getDislikedShopsList() {
+		return dislikedShopsList;
+	}
+
+	public void setDislikedShopsList(List<String> dislikedShopsList) {
+		this.dislikedShopsList = dislikedShopsList;
+	}
+
+	public List<String> getPreferredShopsList() {
+		return preferredShopsList;
+	}
+
+	public void setPreferredShopsList(List<String> preferredShopsList) {
+		this.preferredShopsList = preferredShopsList;
 	}
 
 
