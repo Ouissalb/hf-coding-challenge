@@ -1,0 +1,21 @@
+body{
+	background-color:#eee;
+}
+.loginbtn{
+	width:  100%;
+}
+
+.login-container{
+	width: 30%;
+	position: relative;
+	margin: 0 auto;
+	top: 100px;
+	background-color: #fff;
+  	border: 1px solid rgba(0,0,0,0.1); 
+  	padding-bottom: 20px;
+}
+
+.input-group{
+	width: 100%;
+	margin-bottom: 10px;
+}

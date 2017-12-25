@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Login</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+	</head>
+	<body>
+		<div class ="container login-container">
+			<div class="login-header">
+				<h2 id="login">Login</h2>
+			</div>
+			<div class="input-group">
+				<input type="text" name="username" class="form-control" placeholder="Username"/><br/><br/>
+				<input type="password" name="password" class="form-control" placeholder="Password"/><br/><br/>
+				<button type="submit" class="btn btn-primary loginbtn">Submit</button>
+			</div>
+			<a href="#" >Sign up</a>
+		</div>
+		
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</body>
+</html>
