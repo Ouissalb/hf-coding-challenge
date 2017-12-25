@@ -13,11 +13,15 @@ public class User {
 	private String id;
 	private String email;
 	private String password;
-	//User coordinates will be retrieved upon his login/signup
-	private Array coordinates;
+	
 	private List<User> users;
 	private List<String> preferredShopsList; //Ids of preferred shops
 	private List<String> dislikedShopsList;  //Ids of disliked shops
+	
+	private String latitude;
+	private String longitude;
+	//User coordinates will be retrieved upon his login/signup
+    Array coordinates;
 
 	public User() {
 		this.users = new ArrayList<>();
@@ -25,12 +29,13 @@ public class User {
 		this.dislikedShopsList =  new ArrayList<>();
 	}
 	
-	public User(String email, String password,Array coordinates,
+	public User(String email, String password,GeoIP coordinates,
 			List<String> preferredShopsList, List<String> dislikedShopsList) {
-		super();
+		
 		this.email = email;
 		this.password = password;
-		this.coordinates = coordinates;
+		this.latitude = coordinates.getLatitude();
+		this.longitude = coordinates.getLongitude();
 		this.preferredShopsList = preferredShopsList;
 		this.dislikedShopsList = dislikedShopsList;
 
@@ -85,6 +90,22 @@ public class User {
 
 	public void setPreferredShopsList(List<String> preferredShopsList) {
 		this.preferredShopsList = preferredShopsList;
+	}
+
+	public String getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
 	}
 
 

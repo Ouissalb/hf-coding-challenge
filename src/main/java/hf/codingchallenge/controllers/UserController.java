@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import Forms.UserSignUp;
+import hf.codingchallenge.entities.GeoIP;
 import hf.codingchallenge.entities.User;
 import hf.codingchallenge.repositories.UserRepository;
 import hf.codingchallenge.service.UserService;
@@ -37,8 +38,8 @@ public class UserController {
 	
     @PostMapping(value = "/register")
     public String register(@RequestBody UserSignUp userSignUp){
-    	Array coordinates = userService.getLocationFromIp(userSignUp.getIp());
-        userService.save(new User(userSignUp.getEmail(), userSignUp.getPassword(), null,null, null));
+    	GeoIP coordinates = userService.getLocationFromIp(userSignUp.getIp());
+        userService.save(new User(userSignUp.getEmail(), userSignUp.getPassword(),coordinates,null, null));
         return "User created";
 }
 	
