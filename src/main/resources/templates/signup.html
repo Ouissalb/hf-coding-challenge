@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Sign up</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+		<script src="https://vuejs.org/js/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		
+
+	</head>
+	<body>
+		<div id="frame">
+			<div class ="container login-container">
+				<div class="login-header">
+					<h2 id="login">Sign up</h2>
+				</div>
+				<div class="input-group">
+					<input type="text" v-model="email" class="form-control" placeholder="Email"/><br/><br/>
+					<input type="password" v-model="password" class="form-control" placeholder="Password"/><br/><br/>
+					<button type="submit" v-on:click="register" class="btn btn-primary loginbtn">Submit</button>
+				</div>
+				<a th:href="@{/}">Already a member?</a>
+			</div>
+		</div>
+		<script>
+		
+	window.Event = new Vue();
+		
+    var app = new Vue({
+        el: '#frame',
+        mounted() {
+            Event.$on('successfullyLoggedIn',function(){
+                window.location.replace("/");
+            })
+        },
+        data:{
+            email: '',
+            password: '',
+        },
+        methods: {
+            register(){
+                axios({
+                    method:'post',
+                    url:'register',
+                    data:{email:this.email,password:this.password}
+                }).then(function(response){
+                    document.location.replace("/");
+                });
+            }
+        }
+    });
+</script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</body>
+</html>
