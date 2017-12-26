@@ -55,7 +55,7 @@ In this project I have used geoip2 to recover the users coordinates from their I
 
 ### Running the app
 
-* Built and run the project as a spring boot application.
+* Build and run the project as a spring boot application.
 
 
 ## Authors
