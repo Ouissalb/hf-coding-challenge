@@ -49,7 +49,9 @@ mongoimport --db shops --collection users  --file shops.metadata.json
 
 ### GeoLocation
 
-In this project I have used geoip2 to recover the users coordinates from their location once they sign up/ login, for that you'll need to download the [GeoLite2 database](http://www.baeldung.com/geolocation-by-ip-with-maxmind) and add its path to the RawDBDemoGeoIPLocationService class' constructor. (You may put it inside the project and call it internally if you wish)
+In this project I have used geoip2 to recover the users coordinates from their IP address that I get once they sign up/ login, for that you'll need to download the [GeoLite2 database](http://www.baeldung.com/geolocation-by-ip-with-maxmind) and add its path to the RawDBDemoGeoIPLocationService class' constructor. (You may put it inside the project and call it internally if you wish)
+
+![getting user ip](https://imgur.com/a/Y1X4v)
 
 ### Running the app
 
