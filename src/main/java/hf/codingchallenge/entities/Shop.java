@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "shops")
 public class Shop {
@@ -16,7 +17,8 @@ public class Shop {
 	private String name;
 	private String email;
 	private String city;
-	private String location;
+	@Field("location")
+	private Location location;
 	private List<Shop> shops;
 	
 	@Indexed(direction = IndexDirection.ASCENDING)
@@ -25,7 +27,7 @@ public class Shop {
 	
 	public Shop() {this.shops = new ArrayList<>();}
 	
-	public Shop(String picture, String name, String email, String city, String location, List<Shop> shops) {
+	public Shop(String picture, String name, String email, String city, Location location, List<Shop> shops) {
 		super();
 		this.picture = picture;
 		this.name = name;
@@ -64,10 +66,10 @@ public class Shop {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public String getLocation() {
+	public Location getLocation() {
 		return location;
 	}
-	public void setLocation(String location) {
+	public void setLocation(Location location) {
 		this.location = location;
 	}
 

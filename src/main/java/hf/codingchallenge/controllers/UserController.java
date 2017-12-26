@@ -1,5 +1,6 @@
 package hf.codingchallenge.controllers;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.maxmind.geoip2.exception.GeoIp2Exception;
 
 import Forms.UserSignUp;
 import hf.codingchallenge.entities.GeoIP;
@@ -37,7 +40,7 @@ public class UserController {
 
 	
     @PostMapping(value = "/register")
-    public String register(@RequestBody UserSignUp userSignUp){
+    public String register(@RequestBody UserSignUp userSignUp) throws IOException, GeoIp2Exception{
     	GeoIP coordinates = userService.getLocationFromIp(userSignUp.getIp());
         userService.save(new User(userSignUp.getEmail(), userSignUp.getPassword(),coordinates,null, null));
         return "User created";
