@@ -1,5 +1,6 @@
 package hf.codingchallenge.service;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.maxmind.geoip2.exception.GeoIp2Exception;
+
+import hf.codingchallenge.entities.GeoIP;
 import hf.codingchallenge.entities.User;
 import hf.codingchallenge.repositories.UserRepository;
 
@@ -34,9 +38,9 @@ public class UserService {
 		return userRepository.findOne(id);
 }
 
-	public Array getLocationFromIp(String ip) {
+	public GeoIP getLocationFromIp(String ip) throws IOException, GeoIp2Exception {
 		
-		return null;
+		return RawDBDemoGeoIPLocationService.getLocation(ip);
 	}
 	
 }
